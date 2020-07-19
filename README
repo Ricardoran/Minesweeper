@@ -1,0 +1,76 @@
+// Name: Haoran Zhang
+// USC NetID: hzhang07
+// CS 455 PA3
+// Fall 2019
+
+----------------------------------------------
+CERTIFY IT'S YOUR WORK
+
+"I certify that the work submitted for this assignment does not
+violate USC's student conduct code.  In particular, the work is my
+own, not a collaboration, and does not involve code created by other
+people, except for the the resources explicitly mentioned in the CS 455
+Course Syllabus.  And I did not share my solution or parts of it with
+other students in the course."
+
+Initial below to "sign" the above statement:
+
+Haoran Zhang
+----------------------------------------------
+ACKNOWLEDGE ANY OUTSIDE SOURCES
+
+List here any code you submitted for this assignment that was written
+with significant help of a course staff member, or code used from the
+textbook.  Be specific about what methods or algorithms are involved,
+and what sections of the textbook are involved (if applicable): [you do
+not need to list any of the code that we wrote for the assignment,
+i.e., the contents of the starter files for the assignment]
+
+
+1. MineField.java
+   populateMineField(): refer the Random generate function that covered in the textbook section 6.9
+
+2. MineField.java
+   defensiveCopy(): got help from TA Suyash on 10/28/2019. I did not understand the meaning of defensive copy,
+   failed test cases several times until Mr.Suyash gave me some hints and explain on this section.
+
+3. VisibleField.java
+  recursionFinding(): got help from: https://zh.wikipedia.org/wiki/Flood_fill
+  it gave a pseudo program of flood fill method, which helps me recursively look for locations without adjacent mines
+
+----------------------------------------------
+KNOWN BUGS or LIMITATIONS:
+These programs can run perfectly without any known bugs so far.
+
+
+
+----------------------------------------------
+ANY OTHER NOTES FOR THE GRADER:
+
+Test case failed history
+
+1. non-square case test failed and MineField
+modified the 1-arg constructor to receive non-square case input
+
+2. timeout
+made a mistake in "if" statement in MineFiled.java.
+before change: if(mineArea[i][i] = true)
+after change: if (mineArea[i][i] == true)
+
+3. defensive copy test failed.
+
+before change: mineArea = mineData;
+after change:     public boolean[][] defensiveCopy(boolean mineData[][]){
+                      for(int i =0; i < numberRows; i++){
+                          for(int j = 0; j < numberCols; j++){
+                              if(mineData[i][j] == STATUS_MINE){
+                                  mineArea[i][j] = STATUS_MINE;
+                              }
+                              else if(mineData[i][j] == STATUS_NO_MINE){
+                                  mineArea[i][j] = STATUS_NO_MINE;
+                              }
+                          }
+                      }
+                      return mineArea;
+
+
